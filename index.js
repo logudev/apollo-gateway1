@@ -23,7 +23,11 @@ const gateway = new ApolloGateway({
   }),
 });
 
-const server = new ApolloServer({ gateway, subscriptions: false });
+const server = new ApolloServer({
+  gateway,
+  subscriptions: false,
+  introspection: true, //Unset for production
+});
 
 server
   .listen({ port: process.env.PORT || 4000 })
